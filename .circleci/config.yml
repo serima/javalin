@@ -5,6 +5,7 @@ workflows:
       - java-8
       - java-9
       - java-10
+      - java-11
       - java-12
 
 version: 2
@@ -33,6 +34,11 @@ jobs:
   java-10:
     docker:
       - image: openjdk:10
+    <<: *shared
+
+  java-10:
+    docker:
+      - image: openjdk:11
     <<: *shared
 
   java-12:
