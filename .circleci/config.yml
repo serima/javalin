@@ -5,6 +5,7 @@ workflows:
       - java-8
       - java-9
       - java-10
+      - java-12
 
 version: 2
 shared: &shared
@@ -28,4 +29,14 @@ jobs:
   java-8:
     docker:
       - image: circleci/openjdk:8-jdk
+    <<: *shared
+
+  java-10:
+    docker:
+      - image: circleci/openjdk:10-jdk
+    <<: *shared
+
+  java-12:
+    docker:
+      - image: circleci/openjdk:12-jdk
     <<: *shared
