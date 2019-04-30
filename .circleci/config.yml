@@ -12,8 +12,7 @@ shared: &shared
   working_directory: ~/repo
   environment:
     # Customize the JVM maximum heap limit
-    JVM_OPTS: -Xmx1g
-    TERM: dumb
+    GRADLE_OPTS: -Xm3G
   steps:
     - checkout
     # Run all tests
