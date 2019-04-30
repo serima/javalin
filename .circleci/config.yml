@@ -1,0 +1,23 @@
+version: 2
+shared: &shared
+  working_directory: ~/repo
+  environment:
+    # Customize the JVM maximum heap limit
+    JVM_OPTS: -Xmx1g
+    TERM: dumb
+  steps:
+    - checkout
+    # Run all tests
+    - run: ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - run: ./mvnw test -B
+
+jobs:
+  java-9:
+    docker:
+      - image: circleci/openjdk:9-jdk
+    <<: *shared
+
+  java-8:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    <<: *shared
