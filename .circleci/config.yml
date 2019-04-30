@@ -12,7 +12,7 @@ shared: &shared
   working_directory: ~/repo
   environment:
     # Customize the JVM maximum heap limit
-    GRADLE_OPTS: -Xm3G
+    GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx2048m"
   steps:
     - checkout
     # Run all tests
