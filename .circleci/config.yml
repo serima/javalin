@@ -21,14 +21,14 @@ shared: &shared
     - run: ./mvnw test -B
 
 jobs:
-  java-9:
-    docker:
-      - image: openjdk:9
-    <<: *shared
-
   java-8:
     docker:
       - image: openjdk:8
+    <<: *shared
+
+  java-9:
+    docker:
+      - image: openjdk:9
     <<: *shared
 
   java-10:
